@@ -60,7 +60,7 @@ onMounted(() => {
     class="needs-validation"
     novalidate
   >
-    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+    <input type="hidden" name="access_key" value="5cc5526b-2028-4b51-a1ae-d73981cbc869" />
     <!-- Create your free access key from https://web3forms.com/ -->
     <input
       type="checkbox"
@@ -71,44 +71,44 @@ onMounted(() => {
     <div class="mb-5">
       <input
         type="text"
-        placeholder="Full Name"
+        placeholder="Nombre"
         required
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="w-full px-4 py-3 border-2 placeholder:text-gray-400 rounded-lg outline-none focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 border-gray-300 transition-colors duration-300"
         name="name"
       />
-      <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
+      <div class="empty-feedback invalid-feedback text-red-500 text-sm mt-1">
         Please provide your full name.
       </div>
     </div>
     <div class="mb-5">
-      <label for="email_address" class="sr-only">Email Address</label
+      <label for="email_address" class="sr-only">Correo electrónico</label
       ><input
         id="email_address"
         type="email"
-        placeholder="Email Address"
+        placeholder="tu@correo.com"
         name="email"
         required
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        class="w-full px-4 py-3 border-2 placeholder:text-gray-400 rounded-lg outline-none focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 border-gray-300 transition-colors duration-300"
       />
-      <div class="empty-feedback text-red-400 text-sm mt-1">
-        Please provide your email address.
+      <div class="empty-feedback text-red-500 text-sm mt-1">
+         Proporcione informacion valida porfavor .
       </div>
-      <div class="invalid-feedback text-red-400 text-sm mt-1">
-        Please provide a valid email address.
+      <div class="invalid-feedback text-red-500 text-sm mt-1">
+        Proporcione informacion valida porfavor .
       </div>
     </div>
     <div class="mb-3">
       <textarea
         name="message"
         required
-        placeholder="Your Message"
-        class="w-full px-4 py-3 border-2 placeholder:text-gray-800 rounded-md outline-none h-36 focus:ring-4 border-gray-300 focus:border-gray-600 ring-gray-100"
+        placeholder="Tu mensaje"
+        class="w-full px-4 py-3 border-2 placeholder:text-gray-400 rounded-lg outline-none h-36 focus:ring-4 focus:ring-primary-500/20 focus:border-primary-500 border-gray-300 transition-colors duration-300"
       ></textarea>
       <div class="empty-feedback invalid-feedback text-red-400 text-sm mt-1">
-        Please enter your message.
+        Porfavor ingresa tu mensaje .
       </div>
     </div>
-    <LandingButton type="submit" size="lg" block>Send Message</LandingButton>
+    <LandingButton type="submit" size="lg" block>Enviar Mensaje</LandingButton>
     <div id="result" class="mt-3 text-center"></div>
   </form>
 </template>

@@ -9,8 +9,8 @@ const TeamImg3 = "https://source.unsplash.com/ZHvM3XIOHoE";
 
 const team = [
   {
-    name: "Janette Lynch",
-    title: "Senior Director",
+    name: "Flavio Ocampo Chavez",
+    title: "Director Ejecutivo(CEO)",
     avatar: {
       src: TeamImg1,
       width: 480,
@@ -18,8 +18,8 @@ const team = [
     },
   },
   {
-    name: "Marcell Ziemann",
-    title: "Principal Strategist",
+    name: "Luciano Alfaro Cataldo",
+    title: "Director de Operaciones(COO)",
     avatar: {
       src: TeamImg2,
       width: 580,
@@ -27,8 +27,17 @@ const team = [
     },
   },
   {
-    name: "Robert Palmer",
-    title: "Marketing Engineer",
+    name: "Rene Castro Mamani ",
+    title: "Director de Finanzas(CFO)",
+    avatar: {
+      src: TeamImg3,
+      width: 580,
+      height: 580,
+    },
+  },
+   {
+    name: "Franco Davalos Ramirez ",
+    title: "Director de Tecnologia(CTO)",
     avatar: {
       src: TeamImg3,
       width: 580,
@@ -41,21 +50,19 @@ const team = [
 <template>
   <LandingContainer>
     <LandingSectionhead>
-      <template v-slot:title>About</template>
-      <template v-slot:desc>We are a small passionate team.</template>
+      <template v-slot:title>Acerca de</template>
+      <template v-slot:desc>Team Eco-Infinity.</template>
     </LandingSectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
       <h2 class="font-bold text-3xl text-gray-800">
-        Empowering the world with Nuxt.
+        Conoce a nuestro equipo.
       </h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        We're a multi-cultural team from around the world! We come from diverse
-        backgrounds, bringing different personalities, experiences and skills to
-        the job. This is what makes our team so special.
+        Equipo conformado por diversas carreras del area de la ingenieria ,tales como Informatica,Industrial y Electrica
       </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-4xl mt-12">
+    <div class="grid md:grid-cols-4 gap-10 mx-auto max-w-4xl mt-12">
       <div v-for="item of team" class="group">
         <div class="w-full aspect-square">
           <img

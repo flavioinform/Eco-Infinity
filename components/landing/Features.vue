@@ -1,66 +1,72 @@
 <script setup>
 const features = [
   {
-    title: "Bring Your Own Framework",
+    title: "Sitios Webs",
     description:
-      "Build your site using Vue, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+      "Desarrollo de sitios web modernos , responsivos , tecnologías actuales y  enfocados en rendimiento, diseño profesional y experiencia de usuario.",
+    icon: "bx:bx-code-alt",
   },
   {
-    title: "100% Static HTML, No JS",
+    title: "Area Robotica",
     description:
-      "Nuxt renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
-  },
-  {
-    title: "On-Demand Components",
-    description:
-      "Need some JS? Nuxt can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
-  },
-  {
-    title: "Broad Integration",
-    description:
-      "Nuxt supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
+      "Diseño y creación de robots autónomos y controlados remotamente, integrando sensores, LoRa, microcontroladores y visión computacional para proyectos educativos e industriales.",
     icon: "bx:bxs-bot",
   },
   {
-    title: "SEO Enabled",
+    title: "Big-Data",
     description:
-      "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
+      "Análisis avanzado de grandes volúmenes de datos utilizando pipelines, modelos predictivos, dashboards y visualizaciones para toma de decisiones basada en información real.  ",
+    icon: "bx:bx-line-chart",
   },
   {
-    title: "Community",
+    title: "Monitoreo en tiempo real ",
     description:
-      "Nuxt is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
+      "Sistemas capaces de capturar, procesar y transmitir datos en tiempo real mediante LoRa, IoT y sensores especializados, con paneles dinámicos y alertas instantáneas.",
+    icon: "bx:bx-pulse",
+  },
+  {
+    title: "Productos electronicos",
+    description:
+      "Desarrollo de hardware personalizado, prototipos electrónicos, sensores, automatización y módulos integrados para soluciones tecnológicas a medida.",
+    icon: "bx:bxs-chip",
+  },
+  {
+    title: "Eficiencia",
+    description:
+      "Optimización de procesos, automatización inteligente y tecnologías que aumentan la eficiencia operativa en industrias, campo, educación y sistemas energéticos.",
+    icon: "bx:bxs-bolt",
   },
 ];
 </script>
 
 <template>
-  <div class="mt-16 md:mt-0">
-    <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-      Everything you need to start a website
-    </h2>
-    <p class="text-lg mt-4 text-slate-600">
-      Nuxt comes batteries included. It takes the best parts of state-of-the-art
-      tools and adds its own innovations.
-    </p>
-  </div>
-
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
-    <div v-for="item of features" class="flex gap-4 items-start">
-      <div class="mt-1 bg-black rounded-full p-2 w-8 h-8 shrink-0">
-        <Icon class="text-white" :name="item.icon" />
-      </div>
-      <div>
-        <h3 class="font-semibold text-lg">{{ item.title }}</h3>
-        <p class="text-slate-500 mt-2 leading-relaxed">
-          {{ item.description }}
+  <div class="mt-16 md:mt-0 py-24 bg-white" id="servicio">
+    <LandingContainer>
+      <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-900">
+          Nuestros <span class="text-primary-600">Servicios</span>
+        </h2>
+        <p class="text-lg mt-4 text-slate-600 max-w-2xl mx-auto">
+          Eco-Infinity ofrece soluciones integrales en diversas áreas tecnológicas, impulsando la innovación en tu negocio.
         </p>
       </div>
-    </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div v-for="(item, index) in features" :key="index" class="reveal-on-scroll bg-white p-8 rounded-3xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border border-slate-100 group relative overflow-hidden" :class="`delay-${(index % 3 + 1) * 100}`">
+          <!-- Hover Gradient Background -->
+          <div class="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-accent-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          <div class="relative z-10">
+            <div class="bg-primary-50 rounded-2xl p-4 w-16 h-16 flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-primary-400 transition-all duration-300 shadow-sm group-hover:shadow-md">
+              <Icon class="text-primary-600 w-10 h-10 group-hover:text-primary-400 transition-colors duration-300" :name="item.icon" />
+            </div>
+            <h3 class="font-bold text-2xl text-slate-900 mb-3 group-hover:text-black transition-colors">{{ item.title }}</h3>
+            <p class="text-slate-500 leading-relaxed text-lg group-hover:text-slate-700">
+              {{ item.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </LandingContainer>
   </div>
 </template>

@@ -1,3 +1,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply bg-white text-slate-800;
+}
+
+@layer utilities {
+    .reveal-on-scroll {
+        @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
+    }
+
+    .reveal-on-scroll.is-visible {
+        @apply opacity-100 translate-y-0;
+    }
+
+    .delay-100 {
+        transition-delay: 100ms;
+    }
+
+    .delay-200 {
+        transition-delay: 200ms;
+    }
+
+    .delay-300 {
+        transition-delay: 300ms;
+    }
+}

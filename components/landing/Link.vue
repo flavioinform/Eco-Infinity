@@ -19,10 +19,10 @@ const sizes = {
 };
 
 const styles = {
-  outline: "bg-white border-2 border-black hover:bg-gray-100 text-black",
-  primary: "bg-black text-white hover:bg-gray-800  border-2 border-transparent",
+  outline: "bg-white border-2 border-black hover:bg-green-100 text-black",
+  primary: "bg-black text-white hover:bg-green-800  border-2 border-transparent",
   inverted: "bg-white text-black border-2 border-transparent",
-  muted: "bg-gray-100 hover:bg-gray-200 border-2 border-transparent",
+  muted: "bg-gray-100 hover:bg-green-200 border-2 border-transparent",
 };
 </script>
 
