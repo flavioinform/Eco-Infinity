@@ -1,29 +1,47 @@
 <template>
-  <footer class="footer-bg border-t pt-12 pb-10" style="border-color: rgba(57,255,20,0.08);">
+  <footer class="footer-bg border-t border-white/10 pt-12 pb-10">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
       <div class="flex flex-col items-center gap-4">
-        <!-- Neon separator -->
-        <div class="w-20 h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent mb-2"></div>
-
-        <!-- Logo with mini Rubik -->
+        <!-- Logo with mini planet logo -->
         <a href="/" class="flex items-center gap-2 group mt-1">
-          <div class="rubik-face group-hover:rotate-45 transition-transform duration-500" style="width:22px;gap:1.5px;padding:1.5px;">
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.8);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.3);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.6);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.4);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,1.0);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.5);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.7);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.2);border-radius:1px;"></div>
-            <div class="rubik-cell" style="background:rgba(57,255,20,0.9);border-radius:1px;"></div>
-          </div>
-          <span class="text-lg font-black">
-            <span class="logo-glow text-primary-500">Eco</span><span class="text-slate-400 group-hover:text-slate-200 transition-colors">Infinity</span>
+          <svg class="w-7 h-7 transition-all duration-500 group-hover:scale-105 group-hover:rotate-[15deg]" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="planetSphereFooter" cx="42%" cy="38%" r="65%" fx="32%" fy="28%">
+                <stop offset="0%" stop-color="#A0F0DF" />
+                <stop offset="25%" stop-color="#70C3D4" />
+                <stop offset="65%" stop-color="#3474BE" />
+                <stop offset="100%" stop-color="#1D4088" />
+              </radialGradient>
+              <linearGradient id="planetRingFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#70C3D4" />
+                <stop offset="50%" stop-color="#A0F0DF" />
+                <stop offset="100%" stop-color="#3474BE" />
+              </linearGradient>
+              <filter id="neonGlowFooter" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="8" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <ellipse cx="100" cy="172" rx="55" ry="8" fill="#02040A" opacity="0.85" />
+            <g transform="rotate(-18, 100, 100)">
+              <path d="M 22 100 A 78 20 0 0 1 178 100" stroke="url(#planetRingFooter)" stroke-width="11" stroke-linecap="round" opacity="0.85" />
+            </g>
+            <circle cx="100" cy="100" r="48" fill="url(#planetSphereFooter)" stroke="#1D4088" stroke-width="2.5" />
+            <g transform="rotate(-18, 100, 100)">
+              <path d="M 178 100 A 78 20 0 0 1 22 100" stroke="url(#planetRingFooter)" stroke-width="11" stroke-linecap="round" />
+            </g>
+            <circle cx="86" cy="80" r="10" fill="#A0F0DF" filter="url(#neonGlowFooter)" opacity="0.5" pointer-events="none" />
+            <circle cx="84" cy="78" r="4" fill="#FFFFFF" opacity="0.8" pointer-events="none" />
+          </svg>
+          <span class="text-lg font-serif font-bold text-white">
+            EcoInfinity
           </span>
         </a>
 
-        <p class="text-center text-xs text-slate-600 hover:text-slate-400 transition-colors duration-300 mt-1 tracking-wide">
+        <p class="text-center text-xs text-white/60 hover:text-white transition-colors duration-300 mt-1 tracking-wide font-bold">
           © {{ new Date().getFullYear() }} Eco-Infinity. Todos los derechos reservados.
         </p>
       </div>
@@ -32,12 +50,5 @@
 </template>
 
 <style scoped>
-.footer-bg { background: #000000; }
-.logo-glow {
-  text-shadow: 0 0 14px rgba(57,255,20,0.5);
-  transition: text-shadow 0.3s ease;
-}
-a:hover .logo-glow {
-  text-shadow: 0 0 28px rgba(57,255,20,0.9);
-}
+.footer-bg { background: transparent; }
 </style>

@@ -13,34 +13,68 @@ export default {
   theme: {
     extend: {
       colors: {
+        ecoinfinity: {
+          dark: '#1D4088',       // Azul Oscuro
+          medium: '#3474BE',     // Azul Medio
+          cyan: '#70C3D4',       // Cian/Turquesa
+          neon: '#A0F0DF',       // Aguamarina Brillante
+          gray: '#D8E2F0',       // Gris Azulado Claro
+          white: '#FFFFFF',      // Blanco
+        },
         primary: {
-          50: "#f0fdf4",
-          100: "#dcfce7",
-          200: "#bbf7d0",
-          300: "#86efac",
-          400: "#4ade80",
-          500: "#39ff14",   // Neon green core
-          600: "#22c55e",
-          700: "#16a34a",
-          800: "#166534",
-          900: "#14532d",
-          950: "#052e16",
+          50: "#FFFFFF",
+          100: "#D8E2F0",
+          200: "#D8E2F0",
+          300: "#70C3D4",
+          400: "#A0F0DF",
+          500: "#1D4088",
+          600: "#1D4088",
+          700: "#1D4088",
+          800: "#1D4088",
+          900: "#1D4088",
+          950: "#1D4088",
         },
         accent: {
-          400: "#22d3ee",
-          500: "#06b6d4",
-          600: "#0891b2",
+          400: "#70C3D4",
+          500: "#A0F0DF",
+          600: "#3474BE",
         },
         brand: {
-          black: "#000000",
-          dark: "#080808",
-          darker: "#050505",
-          card: "#0e0e0e",
-          border: "#1a1a1a",
-        }
+          black: "#1D4088",
+          dark: "#FFFFFF",
+          darker: "#D8E2F0",
+          card: "#FFFFFF",
+          border: "#1D4088",
+        },
+        sage: {
+          DEFAULT: "#70C3D4",
+          100: "#D8E2F0",
+          200: "#D8E2F0",
+          300: "#70C3D4",
+          400: "#A0F0DF",
+        },
+        cream: {
+          DEFAULT: "#FFFFFF",
+        },
+        forest: {
+          DEFAULT: "#1D4088",
+          hover: "#3474BE",
+        },
+        mascot: {
+          yellow: "#A0F0DF",
+        },
+      },
+      boxShadow: {
+        'cartoon': '4px 4px 0px 0px #1D4088',
+        'cartoon-lg': '6px 6px 0px 0px #1D4088',
+        'cartoon-yellow': '3px 3px 0px 0px #A0F0DF',
+        'neon-glow': '0 0 15px rgba(160, 240, 223, 0.4), 0 0 30px rgba(112, 195, 212, 0.2)',
+        'soft-depth': '0 10px 25px -5px rgba(29, 64, 136, 0.08), 0 8px 10px -6px rgba(29, 64, 136, 0.04)',
+        'planet-shadow': '0 20px 40px -15px rgba(29, 64, 136, 0.15)'
       },
       fontFamily: {
-        sans: ["Outfit", "Inter", ...defaultTheme.fontFamily.sans],
+        sans: ["DejaVu Serif", "Outfit", "Inter", ...defaultTheme.fontFamily.sans],
+        serif: ["DejaVu Serif", ...defaultTheme.fontFamily.serif],
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
@@ -59,6 +93,9 @@ export default {
         'netflix-intro': 'netflixIntro 1.0s cubic-bezier(0.16,1,0.3,1) forwards',
         'scan-down': 'scanDown 4s linear infinite',
         'neon-flicker': 'neonFlicker 3s ease-in-out infinite',
+        'orbit-slow': 'spin 25s linear infinite',
+        'float-planet': 'floatPlanet 6s ease-in-out infinite',
+        'neon-pulse': 'neonPulse 2.5s ease-in-out infinite'
       },
       keyframes: {
         fadeInUp: {
@@ -129,6 +166,14 @@ export default {
           '96%': { opacity: '0.6' },
           '98%': { opacity: '1' },
         },
+        floatPlanet: {
+          '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(2deg)' }
+        },
+        neonPulse: {
+          '0%, 100%': { opacity: '0.6', filter: 'drop-shadow(0 0 5px #A0F0DF)' },
+          '50%': { opacity: '1', filter: 'drop-shadow(0 0 15px #A0F0DF)' }
+        }
       },
       backdropBlur: {
         xs: '2px',

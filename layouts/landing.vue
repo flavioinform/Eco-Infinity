@@ -7,7 +7,7 @@ onMounted(() => {
           const el = entry.target;
           const parent = el.parentElement;
           if (parent) {
-            const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll'));
+            const siblings = Array.from(parent.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale'));
             const idx = siblings.indexOf(el);
             if (idx > -1) {
               el.style.transitionDelay = `${idx * 90}ms`;
@@ -21,11 +21,12 @@ onMounted(() => {
     },
     { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.06 }
   );
-  document.querySelectorAll('.reveal-on-scroll').forEach((el) => observer.observe(el));
+  document.querySelectorAll('.reveal-on-scroll, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => observer.observe(el));
 });
 </script>
 
 <template>
+  <LandingSplashScreen />
   <LandingNavbar />
   <slot />
   <LandingFooter />

@@ -3,305 +3,127 @@ const features = [
   {
     title: "Sitios Webs",
     description:
-      "Desarrollo de sitios web modernos , responsivos , tecnologías actuales y  enfocados en rendimiento, diseño profesional y experiencia de usuario.",
+      "Desarrollo de sitios web modernos, responsivos, tecnologías actuales y enfocados en rendimiento, diseño profesional y experiencia de usuario.",
     icon: "bx:bx-code-alt",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Area Robotica",
     description:
       "Diseño y creación de robots autónomos y controlados remotamente, integrando sensores, LoRa, microcontroladores y visión computacional para proyectos educativos e industriales.",
     icon: "bx:bxs-bot",
+    image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Big-Data",
     description:
       "Análisis avanzado de grandes volúmenes de datos utilizando pipelines, modelos predictivos, dashboards y visualizaciones para toma de decisiones basada en información real.",
     icon: "bx:bx-line-chart",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Monitoreo en tiempo real",
     description:
       "Sistemas capaces de capturar, procesar y transmitir datos en tiempo real mediante LoRa, IoT y sensores especializados, con paneles dinámicos y alertas instantáneas.",
     icon: "bx:bx-pulse",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Productos electronicos",
     description:
       "Desarrollo de hardware personalizado, prototipos electrónicos, sensores, automatización y módulos integrados para soluciones tecnológicas a medida.",
     icon: "bx:bxs-chip",
+    image: "https://images.unsplash.com/photo-1591405351990-4726e331f141?auto=format&fit=crop&w=600&q=80",
   },
   {
     title: "Eficiencia",
     description:
       "Optimización de procesos, automatización inteligente y tecnologías que aumentan la eficiencia operativa en industrias, campo, educación y sistemas energéticos.",
     icon: "bx:bxs-bolt",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
   },
 ];
 </script>
 
 <template>
-  <div class="features-bg hex-pattern-bg py-28 relative overflow-hidden" id="servicio">
+  <div class="features-bg py-24 relative overflow-hidden" id="servicio">
+    <!-- Subtle technical grid background decoration -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] [background-size:40px_40px] opacity-40 pointer-events-none" aria-hidden="true"></div>
 
-    <!-- BG glow -->
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary-500/20 to-transparent"></div>
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(57,255,20,0.06) 0%,transparent 70%);"></div>
-    </div>
-
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <!-- Header -->
-      <div class="text-center mb-20 reveal-on-scroll">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary-500/25 bg-primary-500/8 mb-5">
-          <span class="w-1.5 h-1.5 rounded-full bg-primary-500 animate-pulse"></span>
-          <span class="text-primary-400 text-xs font-bold tracking-[0.2em] uppercase">Lo que ofrecemos</span>
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-16 reveal-on-scroll flex flex-col items-center">
+        <!-- Tech/Eco Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-md border-l-2 border-l-[#A0F0DF] border-y border-r border-[#70C3D4]/25 bg-[#0C1836]/65 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_12px_rgba(0,0,0,0.4)] select-none hover:border-[#A0F0DF]/50 transition-all duration-300 mb-5">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A0F0DF] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#A0F0DF]"></span>
+          </span>
+          <span class="text-[9px] font-bold uppercase tracking-[0.22em] text-white/90 font-sans flex items-center gap-1.5">
+            <span>Eco-Infinity</span>
+            <span class="text-[#70C3D4]/50 font-normal">//</span>
+            <span class="text-[#A0F0DF]">Servicios</span>
+          </span>
         </div>
-        <h2 class="text-4xl lg:text-5xl font-black text-white">
-          Nuestros <span class="text-shimmer">Servicios</span>
+
+        <h2 class="text-4xl lg:text-5xl font-serif text-white tracking-tight leading-tight">
+          Lo que <span class="text-[#3474BE]">podemos hacer</span> por ti
         </h2>
-        <p class="text-lg mt-4 text-slate-400 max-w-2xl mx-auto">
-          Soluciones integrales en diversas áreas tecnológicas, impulsando la innovación en tu negocio.
+        
+        <p class="text-md mt-4 text-white/75 max-w-2xl mx-auto leading-relaxed">
+          Soluciones tecnológicas diseñadas para impulsar tu negocio
         </p>
       </div>
 
-      <!-- Cards grid -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Services Cards Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         <div
           v-for="(item, index) in features"
           :key="index"
-          class="feature-card reveal-on-scroll group relative overflow-hidden rounded-2xl p-8 cursor-default"
-          :style="`animation-delay:${index*60}ms`"
+          class="relative h-[420px] rounded-2xl overflow-hidden group transition-all duration-300 reveal-scale border border-white/10 hover:border-[#70C3D4]/50 hover:shadow-neon-glow hover:-translate-y-1"
+          :style="`animation-delay:${index * 60}ms`"
         >
-          <!-- ═══ Tracing border (SVG-based animated stroke) ═══ -->
-          <div class="card-border-tracer" aria-hidden="true"></div>
-
-          <!-- ═══ Shimmer sweep diagonal ═══ -->
-          <div class="card-shimmer-sweep" aria-hidden="true"></div>
-
-          <!-- ═══ Corner neon accent dots ═══ -->
-          <span class="corner-dot corner-dot--tr" aria-hidden="true"></span>
-          <span class="corner-dot corner-dot--bl" aria-hidden="true"></span>
-
-          <!-- ═══ Scan line ═══ -->
-          <div class="card-scan-line" aria-hidden="true"></div>
-
-          <!-- ═══ Top neon glow bar ═══ -->
-          <div class="card-top-bar" aria-hidden="true"></div>
-
-          <!-- ═══ Content ═══ -->
-          <div class="relative z-10">
-            <!-- Icon -->
-            <div class="icon-ring group-hover:icon-ring-active mb-6">
-              <div class="icon-inner">
-                <Icon class="text-primary-400 w-7 h-7 group-hover:text-primary-300 group-hover:scale-110 transition-all duration-300" :name="item.icon" />
-              </div>
+          <!-- Background Image -->
+          <img :src="item.image" :alt="item.title" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter contrast-90 brightness-95" />
+          
+          <!-- Dark Overlay Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#060D1E] via-[#060D1E]/60 to-transparent z-10"></div>
+          
+          <!-- Card Content (positioned over gradient at the bottom) -->
+          <div class="absolute inset-x-0 bottom-0 p-6 z-20 flex flex-col items-start text-left">
+            
+            <!-- Icon Box -->
+            <div class="w-10 h-10 rounded-lg bg-white/15 backdrop-blur-md flex items-center justify-center mb-4 text-[#A0F0DF] border border-white/10 group-hover:bg-[#A0F0DF] group-hover:text-[#1D4088] transition-all duration-300">
+              <Icon class="w-5 h-5 transition-transform duration-300 group-hover:scale-110" :name="item.icon" />
             </div>
 
-            <h3 class="font-black text-xl text-white mb-3 group-hover:text-primary-300 transition-colors duration-300 group-hover:translate-x-1 transform">
+            <!-- Title -->
+            <h3 class="font-serif font-bold text-2xl text-white mb-2">
               {{ item.title }}
             </h3>
-            <p class="text-slate-500 leading-relaxed group-hover:text-slate-300 transition-colors duration-400 text-sm">
+            
+            <!-- Description -->
+            <p class="text-white/80 leading-relaxed text-sm mb-5 font-medium line-clamp-3">
               {{ item.description }}
             </p>
 
-            <!-- Bottom tag -->
-            <div class="card-tag mt-5">
-              <span class="w-1 h-1 rounded-full bg-primary-500 animate-pulse inline-block mr-1.5"></span>
-              <span>Eco-Infinity</span>
-            </div>
+            <!-- Action Button Capsule -->
+            <a href="/contact" class="flex items-center gap-1.5 px-4.5 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 text-white font-bold text-xs rounded-full uppercase tracking-wider transition-all duration-300">
+              <span>Ver más</span>
+              <Icon name="uil:arrow-right" class="w-4 h-4" />
+            </a>
           </div>
         </div>
       </div>
+      
     </div>
-
-    <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-primary-500/15 to-transparent"></div>
   </div>
 </template>
 
 <style scoped>
 .features-bg {
-  background: #000000;
-  background-image: radial-gradient(ellipse at 50% 0%, rgba(57,255,20,0.04) 0%, transparent 60%);
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
-
-/* ═══ Card base ═══ */
-.feature-card {
-  background: #080808;
-  border: 1px solid rgba(57, 255, 20, 0.08);
-  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
-              box-shadow 0.45s ease,
-              border-color 0.45s ease,
-              background 0.45s ease;
-  transform-style: preserve-3d;
-}
-
-.feature-card:hover {
-  transform: translateY(-12px) scale(1.03);
-  background: #0a0f0a;
-  border-color: rgba(57, 255, 20, 0.40);
-  box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(57, 255, 20, 0.15),
-    0 0 40px rgba(57, 255, 20, 0.12),
-    0 0 80px rgba(57, 255, 20, 0.05),
-    inset 0 0 40px rgba(57, 255, 20, 0.03);
-}
-
-/* ═══ Tracing border (4-side neon line that draws on hover) ═══ */
-.card-border-tracer {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 2;
-}
-.card-border-tracer::before,
-.card-border-tracer::after {
-  content: '';
-  position: absolute;
-  border-radius: inherit;
-  transition: opacity 0.1s ease;
-  opacity: 0;
-}
-/* Top + right border trace */
-.card-border-tracer::before {
-  top: 0; left: 0;
-  width: 0%; height: 2px;
-  background: linear-gradient(90deg, #39ff14, #22d3ee);
-  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
-  opacity: 0;
-  transition: width 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.15s ease;
-}
-.feature-card:hover .card-border-tracer::before {
-  width: 100%;
-  opacity: 1;
-}
-/* Left border trace */
-.card-border-tracer::after {
-  bottom: 0; right: 0;
-  width: 2px; height: 0%;
-  background: linear-gradient(180deg, #22d3ee, #39ff14);
-  box-shadow: 0 0 10px #22d3ee;
-  opacity: 0;
-  transition: height 0.55s 0.3s cubic-bezier(0.16,1,0.3,1), opacity 0.15s 0.3s ease;
-}
-.feature-card:hover .card-border-tracer::after {
-  height: 100%;
-  opacity: 1;
-}
-
-/* ═══ Diagonal shimmer sweep ═══ */
-.card-shimmer-sweep {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    115deg,
-    transparent 0%,
-    transparent 35%,
-    rgba(57, 255, 20, 0.08) 50%,
-    rgba(34, 211, 238, 0.05) 55%,
-    transparent 70%,
-    transparent 100%
-  );
-  transform: translateX(-100%) skewX(-10deg);
-  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-  z-index: 1;
-}
-.feature-card:hover .card-shimmer-sweep {
-  transform: translateX(120%) skewX(-10deg);
-}
-
-/* ═══ Corner accent dots ═══ */
-.corner-dot {
-  position: absolute;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #39ff14;
-  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
-  pointer-events: none;
-  z-index: 3;
-  opacity: 0;
-  transform: scale(0);
-  transition: opacity 0.3s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
-}
-.feature-card:hover .corner-dot { opacity: 1; transform: scale(1); }
-.corner-dot--tr { top: 10px; right: 10px; transition-delay: 0.1s; }
-.corner-dot--bl { bottom: 10px; left: 10px; transition-delay: 0.2s; }
-
-/* dot pulse */
-@keyframes dotPulse {
-  0%, 100% { box-shadow: 0 0 8px #39ff14, 0 0 16px #39ff14; }
-  50%       { box-shadow: 0 0 16px #39ff14, 0 0 32px #39ff14; }
-}
-.feature-card:hover .corner-dot { animation: dotPulse 1.5s ease-in-out infinite; }
-
-/* ═══ Horizontal scan line sweeps top → bottom ═══ */
-.card-scan-line {
-  position: absolute;
-  left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(57,255,20,0.5), transparent);
-  top: 0;
-  transform: translateY(-100%);
-  pointer-events: none;
-  z-index: 4;
-  opacity: 0;
-}
-@keyframes scanCard {
-  0%   { transform: translateY(-100%); opacity: 0; }
-  5%   { opacity: 1; }
-  95%  { opacity: 1; }
-  100% { transform: translateY(40rem); opacity: 0; }
-}
-.feature-card:hover .card-scan-line {
-  animation: scanCard 1.8s linear infinite;
-}
-
-/* ═══ Top neon glow bar ═══ */
-.card-top-bar {
-  position: absolute;
-  top: 0; left: 20%; right: 20%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #39ff14, transparent);
-  box-shadow: 0 0 12px #39ff14;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
-  pointer-events: none;
-  z-index: 3;
-}
-.feature-card:hover .card-top-bar { transform: scaleX(1); }
-
-/* ═══ Icon ring ═══ */
-.icon-ring {
-  width: 56px; height: 56px;
-  border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(57,255,20,0.07);
-  border: 1px solid rgba(57,255,20,0.15);
-  transition: background 0.4s ease, border-color 0.4s ease,
-              box-shadow 0.4s ease, transform 0.5s cubic-bezier(0.34,1.56,0.64,1),
-              border-radius 0.4s ease;
-}
-.feature-card:hover .icon-ring {
-  background: rgba(57,255,20,0.15);
-  border-color: rgba(57,255,20,0.6);
-  box-shadow: 0 0 20px rgba(57,255,20,0.35), inset 0 0 12px rgba(57,255,20,0.1);
-  transform: rotate(8deg) scale(1.15);
-  border-radius: 50%;
-}
-
-/* ═══ Bottom card tag ═══ */
-.card-tag {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(57,255,20,0.0);
-  transition: color 0.4s ease 0.1s;
-}
-.feature-card:hover .card-tag { color: rgba(57,255,20,0.55); }
 </style>

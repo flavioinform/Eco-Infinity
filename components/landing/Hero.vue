@@ -1,363 +1,145 @@
 <template>
   <!--
     ═══════════════════════════════════════════════════
-    HERO  ·  Dragon-scale hex pattern + Tetris floaters
+    HERO  ·  Eco-Infinity Futuristic Essence Redesign
     ═══════════════════════════════════════════════════
   -->
-  <main class="hero-root hex-pattern-bg relative overflow-hidden" style="min-height:100vh; width:100vw; margin-left:calc(-50vw + 50%);">
-
-    <!-- ── Ambient radial glows (dark green depth) ── -->
-    <div class="amb-glow amb-glow--tl" aria-hidden="true"></div>
-    <div class="amb-glow amb-glow--br" aria-hidden="true"></div>
-    <div class="amb-glow amb-glow--center" aria-hidden="true"></div>
-
-    <!-- ── Scan-line ── -->
-    <div class="scan-line" aria-hidden="true"></div>
-
-    <!-- ══════════════════════════════════════════════
-         🧩  FLOATING TETRIS PIECES
-         All pieces use CSS-variable based animation
-         durations/delays for variety without JS.
-    ══════════════════════════════════════════════ -->
-    <div class="tetris-wrap" aria-hidden="true">
-
-      <!-- ① L-piece  ·  top-left -->
-      <div class="t-piece anim-float-a" style="--dur:14s;--delay:0s; top:9%; left:3.5%; grid-template-columns:repeat(2,18px); grid-template-rows:repeat(3,18px);">
-        <div class="t-cell"></div>    <div></div>
-        <div class="t-cell"></div>    <div></div>
-        <div class="t-cell"></div>    <div class="t-cell"></div>
+  <main class="hero-root relative overflow-hidden py-16 lg:py-24 min-h-screen w-full flex items-center">
+    
+    <!-- Ambient tech grid and neon background blur glow -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
+      <div class="absolute top-[25%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-tr from-[#A0F0DF]/15 to-[#70C3D4]/5 blur-[90px] opacity-75"></div>
+      
+      <!-- Decorative Floating Coordinates / Nodes (Ecoinfinity style) -->
+      <div class="absolute top-[18%] left-[10%] anim-float-a opacity-40">
+        <svg class="w-8 h-8 text-[#70C3D4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="8" stroke-dasharray="4 2" />
+          <circle cx="12" cy="12" r="2" fill="currentColor" />
+        </svg>
       </div>
-
-      <!-- ② Rubik 3×3  ·  top-right -->
-      <div class="t-piece anim-cube" style="--dur:24s;--delay:1s; top:6%; right:5%;">
-        <div class="rubik-face" style="width:78px;">
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.70);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.25);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.55);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.30);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,1.00);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.40);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.65);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.20);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.50);"></div>
-        </div>
+      <div class="absolute bottom-[25%] left-[6%] anim-float-b opacity-30">
+        <svg class="w-6 h-6 text-[#A0F0DF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M2 12h20" stroke-dasharray="2 2" />
+        </svg>
       </div>
-
-      <!-- ③ S-piece  ·  mid-left -->
-      <div class="t-piece anim-drift" style="--dur:20s;--delay:5s; top:42%; left:1.5%; grid-template-columns:repeat(3,16px); grid-template-rows:repeat(2,16px);">
-        <div></div>               <div class="t-cell-dim"></div>  <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div> <div class="t-cell-dim"></div> <div></div>
+      <div class="absolute top-[12%] right-[12%] anim-float-c opacity-40">
+        <svg class="w-10 h-10 text-[#3474BE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
       </div>
-
-      <!-- ④ Square block  ·  bottom-left -->
-      <div class="t-piece anim-float-b" style="--dur:12s;--delay:3s; bottom:16%; left:5%; grid-template-columns:repeat(2,22px); grid-template-rows:repeat(2,22px);">
-        <div class="t-cell"></div> <div class="t-cell"></div>
-        <div class="t-cell"></div> <div class="t-cell"></div>
-      </div>
-
-      <!-- ⑤ I-piece horizontal  ·  bottom-center -->
-      <div class="t-piece anim-float-c" style="--dur:18s;--delay:8s; bottom:12%; left:38%; grid-template-columns:repeat(4,14px); grid-template-rows:14px;">
-        <div class="t-cell-dim"></div><div class="t-cell-dim"></div><div class="t-cell-dim"></div><div class="t-cell-dim"></div>
-      </div>
-
-      <!-- ⑥ T-piece  ·  mid-right -->
-      <div class="t-piece anim-drift" style="--dur:22s;--delay:11s; top:38%; right:2.5%; grid-template-columns:repeat(3,16px); grid-template-rows:repeat(2,16px);">
-        <div class="t-cell-dim"></div><div class="t-cell-dim"></div><div class="t-cell-dim"></div>
-        <div></div>                    <div class="t-cell-dim"></div><div></div>
-      </div>
-
-      <!-- ⑦ Rubik 2×2  ·  lower-right -->
-      <div class="t-piece anim-float-a" style="--dur:16s;--delay:6s; bottom:20%; right:4%; grid-template-columns:repeat(2,20px); grid-template-rows:repeat(2,20px);">
-        <div class="t-cell"></div> <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div> <div class="t-cell"></div>
-      </div>
-
-      <!-- ⑧ L-piece inverted  ·  top-center-right -->
-      <div class="t-piece anim-float-b" style="--dur:19s;--delay:2s; top:18%; right:18%; grid-template-columns:repeat(2,14px); grid-template-rows:repeat(3,14px);">
-        <div></div>                 <div class="t-cell-dim"></div>
-        <div></div>                 <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div><div class="t-cell-dim"></div>
-      </div>
-
-      <!-- ⑨ Small Rubik 3×3  ·  top-center -->
-      <div class="t-piece anim-cube" style="--dur:30s;--delay:4s; top:14%; left:46%;">
-        <div class="rubik-face" style="width:48px; opacity:0.7;">
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.60);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.20);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.80);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.35);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.90);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.30);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.50);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.75);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.45);"></div>
-        </div>
-      </div>
-
-      <!-- ⑩ Z-piece  ·  lower far-left -->
-      <div class="t-piece anim-float-c" style="--dur:25s;--delay:9s; bottom:28%; left:9%; grid-template-columns:repeat(3,13px); grid-template-rows:repeat(2,13px);">
-        <div class="t-cell-dim"></div><div class="t-cell-dim"></div><div></div>
-        <div></div><div class="t-cell-dim"></div><div class="t-cell-dim"></div>
-      </div>
-
-      <!-- ══ EDGE PIECES — fill the side margins ══ -->
-
-      <!-- ⑪ Big Rubik  ·  far LEFT edge -->
-      <div class="t-piece anim-cube" style="--dur:28s;--delay:0.5s; top:20%; left:-1%;">
-        <div class="rubik-face" style="width:68px;">
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.65);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.25);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.80);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.35);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.95);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.45);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.70);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.20);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.55);"></div>
-        </div>
-      </div>
-
-      <!-- ⑫ L-piece  ·  far LEFT edge lower -->
-      <div class="t-piece anim-float-a" style="--dur:17s;--delay:6s; bottom:30%; left:-1%; grid-template-columns:repeat(2,20px); grid-template-rows:repeat(3,20px);">
-        <div class="t-cell"></div>     <div></div>
-        <div class="t-cell"></div>     <div></div>
-        <div class="t-cell"></div>     <div class="t-cell"></div>
-      </div>
-
-      <!-- ⑬ Rubik  ·  far LEFT edge very bottom -->
-      <div class="t-piece anim-float-b" style="--dur:21s;--delay:12s; bottom:8%; left:0%; grid-template-columns:repeat(2,16px); grid-template-rows:repeat(2,16px);">
-        <div class="t-cell"></div> <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div> <div class="t-cell"></div>
-      </div>
-
-      <!-- ⑭ Big Rubik  ·  far RIGHT edge -->
-      <div class="t-piece anim-cube" style="--dur:26s;--delay:3s; top:25%; right:-1%;">
-        <div class="rubik-face" style="width:68px;">
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.50);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.85);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.30);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.70);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.40);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.90);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.60);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.25);"></div>
-          <div class="rubik-cell" style="background:rgba(57,255,20,0.75);"></div>
-        </div>
-      </div>
-
-      <!-- ⑮ T-piece  ·  far RIGHT lower -->
-      <div class="t-piece anim-drift" style="--dur:23s;--delay:7s; bottom:22%; right:-1%; grid-template-columns:repeat(3,18px); grid-template-rows:repeat(2,18px);">
-        <div class="t-cell"></div><div class="t-cell"></div><div class="t-cell"></div>
-        <div></div><div class="t-cell"></div><div></div>
-      </div>
-
-      <!-- ⑯ I-piece vertical  ·  far RIGHT edge bottom -->
-      <div class="t-piece anim-float-c" style="--dur:20s;--delay:14s; bottom:5%; right:0%; grid-template-columns:14px; grid-template-rows:repeat(4,14px);">
-        <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div>
-      </div>
-
-      <!-- ⑰ Square  ·  top LEFT extreme -->
-      <div class="t-piece anim-float-a" style="--dur:15s;--delay:1s; top:5%; left:-1%; grid-template-columns:repeat(2,24px); grid-template-rows:repeat(2,24px);">
-        <div class="t-cell"></div> <div class="t-cell"></div>
-        <div class="t-cell"></div> <div class="t-cell"></div>
-      </div>
-
-      <!-- ⑱ S-piece  ·  top RIGHT extreme -->
-      <div class="t-piece anim-float-b" style="--dur:18s;--delay:4s; top:8%; right:0%; grid-template-columns:repeat(3,16px); grid-template-rows:repeat(2,16px);">
-        <div></div>                    <div class="t-cell-dim"></div><div class="t-cell-dim"></div>
-        <div class="t-cell-dim"></div><div class="t-cell-dim"></div><div></div>
+      <div class="absolute bottom-[20%] right-[10%] anim-float-slow opacity-30">
+        <svg class="w-8 h-8 text-[#70C3D4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="5" fill="currentColor" fill-opacity="0.2" />
+        </svg>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-         HERO CONTENT
-    ══════════════════════════════════════════════ -->
-    <div class="hero-inner relative z-10 max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 place-items-center py-24 lg:py-36 gap-12">
-
-      <!-- Image column -->
-      <div class="hidden md:flex justify-center items-center lg:order-2">
-        <div class="img-wrap relative group">
-          <!-- Outer hex glow ring -->
-          <div class="hex-ring"></div>
-          <!-- Rubik accent top-right of image -->
-          <div class="img-rubik-accent anim-float-b" style="--dur:10s;--delay:1.5s;">
-            <div class="rubik-face" style="width:40px; opacity:0.55;">
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.8);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.35);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.65);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.4);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,1.0);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.5);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.7);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.2);"></div>
-              <div class="rubik-cell" style="background:rgba(57,255,20,0.9);"></div>
-            </div>
-          </div>
-          <img
-            src="~/assets/img/infinity1.png"
-            alt="Eco Infinity"
-            class="hero-img anim-hero-float group-hover:scale-105 transition-transform duration-700"
-            loading="eager" width="512" height="512"
-          />
-        </div>
-      </div>
-
-      <!-- Text column -->
-      <div class="lg:order-1 flex flex-col gap-6">
-
-        <!-- Badge -->
-        <div class="hero-badge anim-fade-up" style="animation-delay:0.05s;">
-          <span class="hero-badge__dot"></span>
-          <span>Innovación &amp; Sustentabilidad</span>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 place-items-center gap-12 min-h-[80vh]">
+      
+      <!-- Left: Text Column -->
+      <div class="flex flex-col gap-6 items-start text-left lg:order-1">
+        <!-- Tech/Eco Badge -->
+        <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-md border-l-2 border-l-[#A0F0DF] border-y border-r border-[#70C3D4]/25 bg-[#0C1836]/65 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05),0_4px_12px_rgba(0,0,0,0.4)] select-none hover:border-[#A0F0DF]/50 transition-all duration-300 anim-fade-up">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#A0F0DF] opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#A0F0DF]"></span>
+          </span>
+          <span class="text-[9px] font-bold uppercase tracking-[0.22em] text-white/90 font-sans flex items-center gap-1.5">
+            <span>Eco-Infinity</span>
+            <span class="text-[#70C3D4]/50 font-normal">//</span>
+            <span class="text-[#A0F0DF]">Innovación &amp; Sustentabilidad</span>
+          </span>
         </div>
 
         <!-- Title -->
-        <h1 class="hero-title anim-fade-up" style="animation-delay:0.15s;">
+        <h1 class="hero-title anim-fade-up font-serif text-5xl lg:text-7.5xl leading-tight text-white tracking-tight">
           Eco-Infinity<br/>
-          <span class="text-shimmer anim-neon-flicker">startup</span>
+          <span class="text-shimmer bg-gradient-to-r from-[#1D4088] via-[#3474BE] to-[#70C3D4] bg-clip-text text-transparent">Tech Startup</span>
         </h1>
 
         <!-- Description -->
-        <p class="hero-desc anim-fade-up" style="animation-delay:0.28s;">
-          Eco-Infinity es una startup que ofrece servicios y ventas de tecnologías.
-          <strong class="text-primary-400">Innovación y Sustentabilidad</strong> integradas para el futuro.
+        <p class="hero-desc anim-fade-up text-lg lg:text-xl text-white/80 max-w-xl leading-relaxed">
+          Eco-Infinity es una startup líder que ofrece servicios y venta de tecnologías integrales. Unimos
+          <strong class="text-[#A0F0DF] font-bold">Innovación y Sustentabilidad</strong> para diseñar las soluciones del futuro.
         </p>
 
-        <!-- CTA -->
-        <div class="anim-fade-up" style="animation-delay:0.42s;">
+        <!-- CTA Button -->
+        <div class="anim-fade-up mt-4">
           <LandingLink
             href="/contact"
-            target="_blank"
-            rel="noopener"
-            class="btn-shimmer font-black shadow-[0_0_28px_rgba(57,255,20,0.40)] hover:shadow-[0_0_48px_rgba(57,255,20,0.70)] hover:scale-105 transition-all duration-300"
-          >Contáctanos</LandingLink>
+            styleName="primary"
+            class="text-md uppercase tracking-wider font-extrabold"
+          >
+            Contáctanos
+          </LandingLink>
         </div>
       </div>
-    </div>
 
-    <!-- Bottom gradient fade-out -->
-    <div class="hero-fade-bottom" aria-hidden="true"></div>
+      <!-- Right: Tilted 3D Glowing Planet Showcase -->
+      <div class="flex justify-center items-center lg:order-2 w-full max-w-sm sm:max-w-md relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-[#A0F0DF]/20 to-[#70C3D4]/5 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+        <div class="relative group w-full flex items-center justify-center">
+          <!-- Dynamic High-Fidelity Planet SVG -->
+          <svg class="w-72 h-72 sm:w-[420px] sm:h-[420px] anim-hero-float drop-shadow-[0_20px_40px_rgba(29,64,136,0.12)] transition-transform duration-700 hover:scale-105" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="planetSphereHero" cx="42%" cy="38%" r="65%" fx="32%" fy="28%">
+                <stop offset="0%" stop-color="#A0F0DF" />
+                <stop offset="25%" stop-color="#70C3D4" />
+                <stop offset="65%" stop-color="#3474BE" />
+                <stop offset="100%" stop-color="#1D4088" />
+              </radialGradient>
+              <linearGradient id="planetRingHero" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#70C3D4" />
+                <stop offset="50%" stop-color="#A0F0DF" />
+                <stop offset="100%" stop-color="#3474BE" />
+              </linearGradient>
+              <filter id="neonGlowHero" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="12" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            
+            <!-- Base Shadow -->
+            <ellipse cx="100" cy="175" rx="60" ry="10" fill="#02040A" opacity="0.9" />
+            
+            <!-- Ring Back -->
+            <g transform="rotate(-18, 100, 100)">
+              <path d="M 22 100 A 78 20 0 0 1 178 100" stroke="url(#planetRingHero)" stroke-width="11" stroke-linecap="round" opacity="0.85" />
+            </g>
+            
+            <!-- Planet Body -->
+            <circle cx="100" cy="100" r="48" fill="url(#planetSphereHero)" stroke="#1D4088" stroke-width="2.5" />
+            
+            <!-- Ring Front -->
+            <g transform="rotate(-18, 100, 100)">
+              <path d="M 178 100 A 78 20 0 0 1 22 100" stroke="url(#planetRingHero)" stroke-width="11" stroke-linecap="round" />
+            </g>
+            
+            <!-- Glowing neon center -->
+            <circle cx="86" cy="80" r="10" fill="#A0F0DF" filter="url(#neonGlowHero)" opacity="0.65" pointer-events="none" />
+            <circle cx="84" cy="78" r="4" fill="#FFFFFF" opacity="0.85" pointer-events="none" />
+          </svg>
+        </div>
+      </div>
+
+    </div>
   </main>
 </template>
 
 <style scoped>
-/* ── Hero background base ── */
 .hero-root {
-  background: #000000;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 15% 45%, rgba(57,255,20,0.06) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 50% at 88% 20%, rgba(34,211,238,0.04) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 50% at 50% 95%, rgba(57,255,20,0.04) 0%, transparent 55%);
+  background-color: transparent;
 }
-
-/* ── Ambient glow circles ── */
-.amb-glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  animation: pulse 4s cubic-bezier(0.4,0,0.6,1) infinite;
-}
-.amb-glow--tl {
-  top: -10%; left: -8%;
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(57,255,20,0.07) 0%, transparent 70%);
-  animation-delay: 0s;
-}
-.amb-glow--br {
-  bottom: -12%; right: -6%;
-  width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(34,211,238,0.05) 0%, transparent 70%);
-  animation-delay: 1.5s;
-}
-.amb-glow--center {
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(57,255,20,0.025) 0%, transparent 65%);
-  animation-delay: 0.8s;
-}
-
-/* ── Image wrapper ── */
-.img-wrap { position: relative; display: inline-flex; }
-
-.hex-ring {
-  position: absolute;
-  inset: -28px;
-  border-radius: 50%;
-  border: 1px solid rgba(57,255,20,0.12);
-  box-shadow: 0 0 40px rgba(57,255,20,0.12), inset 0 0 40px rgba(57,255,20,0.04);
-  animation: hexRingPulse 3.5s ease-in-out infinite;
-  pointer-events: none;
-}
-@keyframes hexRingPulse {
-  0%,100% { box-shadow: 0 0 30px rgba(57,255,20,0.10), inset 0 0 30px rgba(57,255,20,0.03); }
-  50%     { box-shadow: 0 0 60px rgba(57,255,20,0.22), inset 0 0 50px rgba(57,255,20,0.06); }
-}
-
-.hero-img {
-  width: clamp(260px, 36vw, 380px);
-  height: clamp(260px, 36vw, 380px);
-  object-fit: contain;
-  filter: drop-shadow(0 0 40px rgba(57,255,20,0.30));
-  transition: filter 0.6s ease;
-}
-.img-wrap:hover .hero-img {
-  filter: drop-shadow(0 0 70px rgba(57,255,20,0.55));
-}
-
-.img-rubik-accent {
-  position: absolute;
-  top: -12px; right: -14px;
-  z-index: 2;
-}
-
-/* ── Text elements ── */
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(57,255,20,0.25);
-  background: rgba(57,255,20,0.07);
-  color: #4ade80;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  width: max-content;
 }
-.hero-badge__dot {
-  width: 8px; height: 8px;
-  border-radius: 50%;
-  background: #39ff14;
-  animation: pulse 2s infinite;
-}
-
 .hero-title {
-  font-size: clamp(2.6rem, 6vw, 5rem);
-  font-weight: 900;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-}
-
-.hero-desc {
-  font-size: clamp(1rem, 1.6vw, 1.18rem);
-  color: #94a3b8;
-  max-width: 48ch;
-  line-height: 1.75;
-}
-
-/* ── Bottom fade ── */
-.hero-fade-bottom {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 120px;
-  background: linear-gradient(to bottom, transparent, #000000);
-  pointer-events: none; z-index: 5;
+  font-family: 'DejaVu Serif', serif;
+  letter-spacing: -0.01em;
 }
 </style>

@@ -1,11 +1,16 @@
+@import url('https://cdn.jsdelivr.net/fontsource/fonts/dejavu-serif@latest/latin-400-normal.css');
+@import url('https://cdn.jsdelivr.net/fontsource/fonts/dejavu-serif@latest/latin-700-normal.css');
+@import url('https://cdn.jsdelivr.net/fontsource/fonts/dejavu-serif@latest/latin-400-italic.css');
+@import url('https://cdn.jsdelivr.net/fontsource/fonts/dejavu-serif@latest/latin-700-italic.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════
-   ECO-INFINITY  ·  Global Design System
-   Dark mode · Dragon-scale hex pattern · Tetris elements
-═══════════════════════════════════════════════════════════ */
+   ECO-INFINITY  ·  Global Design System (Deep Space Theme)
+   Deep Space Blue Gradient · Contrast Blanco Crema Cards
+   ═══════════════════════════════════════════════════════════ */
 
 /* ─── Base reset ─── */
 *,
@@ -15,307 +20,128 @@
 }
 
 html {
-    background-color: #000000;
+    background-color: #060D1E;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #000000;
-    color: #f1f5f9;
-    font-family: 'Outfit', 'Inter', sans-serif;
+    background: radial-gradient(circle at 80% 50%, #102454 0%, #060D1F 100%);
+    background-attachment: fixed;
+    color: #FFFFFF;
+    font-family: 'DejaVu Serif', serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100vh;
     position: relative;
+    overflow-x: hidden;
 }
 
-/* Full-viewport hex dragon-scale — covers the entire browser window including side margins */
+/* Concentric planetary orbits background pattern */
 body::before {
     content: '';
     position: fixed;
     inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='64' viewBox='0 0 56 64'%3E%3Cpath d='M28 2 L52 16 L52 48 L28 62 L4 48 L4 16 Z' fill='none' stroke='%2339ff14' stroke-width='0.7'/%3E%3C/svg%3E");
-    background-size: 56px 64px;
-    background-repeat: repeat;
-    opacity: 0.052;
+    background-image: 
+        radial-gradient(circle at 80% 50%, transparent 240px, rgba(160, 240, 223, 0.04) 241px, rgba(160, 240, 223, 0.04) 243px, transparent 244px),
+        radial-gradient(circle at 80% 50%, transparent 380px, rgba(112, 195, 212, 0.02) 381px, rgba(112, 195, 212, 0.02) 383px, transparent 384px),
+        radial-gradient(circle at 80% 50%, transparent 520px, rgba(160, 240, 223, 0.01) 521px, rgba(160, 240, 223, 0.01) 523px, transparent 524px);
     pointer-events: none;
     z-index: 0;
 }
-
-body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='64' viewBox='0 0 56 64'%3E%3Cpath d='M28 2 L52 16 L52 48 L28 62 L4 48 L4 16 Z' fill='none' stroke='%2339ff14' stroke-width='0.7'/%3E%3C/svg%3E");
-    background-size: 56px 64px;
-    background-position: 28px 32px;
-    background-repeat: repeat;
-    opacity: 0.030;
-    pointer-events: none;
-    z-index: 0;
-}
-
 
 /* ─── CSS custom properties ─── */
 :root {
-    --neon: #39ff14;
-    --neon-dim: rgba(57, 255, 20, 0.10);
-    --neon-glow: rgba(57, 255, 20, 0.35);
-    --black: #000000;
-    --card: #0a0a0a;
-    --card-hover: #0f120f;
-    --border: rgba(57, 255, 20, 0.10);
-    --border-hover: rgba(57, 255, 20, 0.40);
+    --ecoinfinity-dark: #1D4088;
+    --ecoinfinity-medium: #3474BE;
+    --ecoinfinity-cyan: #70C3D4;
+    --ecoinfinity-neon: #A0F0DF;
+    --ecoinfinity-gray: #D8E2F0;
+    --ecoinfinity-white: #FFFFFF;
+
+    /* Legacy mapping adapted to space background */
+    --forest: #FFFFFF;
+    --forest-hover: #A0F0DF;
+    --sage: #70C3D4;
+    --cream: #0C1836;
+    --yellow: #A0F0DF;
+    --border: rgba(255, 255, 255, 0.1);
 }
 
-/* ════════════════════════════════════════════════════════
-   🐉  DRAGON-SCALE  ·  Hexagonal SVG background pattern
-════════════════════════════════════════════════════════ */
+/* ─── Custom animations ─── */
 
-/*
-  SVG hex path:  pointy-top hexagon, 40×46 cell
-  The hex outline is drawn with a single <path>.
-  We use a data-URI so no external file is needed.
-  opacity on the container keeps it subtle (6–8%).
-*/
-.hex-pattern-bg {
-    position: relative;
-    isolation: isolate;
-}
-
-.hex-pattern-bg::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='64' viewBox='0 0 56 64'%3E%3Cpath d='M28 2 L52 16 L52 48 L28 62 L4 48 L4 16 Z' fill='none' stroke='%2339ff14' stroke-width='0.6'/%3E%3C/svg%3E");
-    background-size: 56px 64px;
-    background-repeat: repeat;
-    opacity: 0.055;
-    pointer-events: none;
-    z-index: 0;
-    will-change: opacity;
-}
-
-/* Interlocked offset row – creates the "dragon-scale" stagger */
-.hex-pattern-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='64' viewBox='0 0 56 64'%3E%3Cpath d='M28 2 L52 16 L52 48 L28 62 L4 48 L4 16 Z' fill='none' stroke='%2339ff14' stroke-width='0.6'/%3E%3C/svg%3E");
-    background-size: 56px 64px;
-    background-position: 28px 32px;
-    /* offset by half cell → interlock */
-    background-repeat: repeat;
-    opacity: 0.035;
-    pointer-events: none;
-    z-index: 0;
-    will-change: opacity;
-}
-
-/* ════════════════════════════════════════════════════════
-   🧩  TETRIS FLOATING PIECES  ·  Base styles
-════════════════════════════════════════════════════════ */
-
-.tetris-wrap {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Every piece */
-.t-piece {
-    position: absolute;
-    display: grid;
-    gap: 3px;
-    opacity: 0;
-    /* starts hidden; animation fades in */
-    will-change: transform, opacity;
-    filter: blur(0.3px);
-}
-
-/* Individual cube cell */
-.t-cell {
-    border-radius: 3px;
-    background: var(--neon);
-    box-shadow: 0 0 6px rgba(57, 255, 20, 0.6), inset 0 0 4px rgba(255, 255, 255, 0.15);
-}
-
-.t-cell-dim {
-    border-radius: 3px;
-    background: rgba(57, 255, 20, 0.35);
-    box-shadow: 0 0 4px rgba(57, 255, 20, 0.3);
-}
-
-/* Rubik face */
-.rubik-face {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 3px;
-    padding: 3px;
-    background: rgba(57, 255, 20, 0.04);
-    border: 1px solid rgba(57, 255, 20, 0.18);
-    border-radius: 5px;
-}
-
-.rubik-cell {
-    aspect-ratio: 1;
-    border-radius: 2px;
-    border: 1px solid rgba(57, 255, 20, 0.25);
-}
-
-/* ════════════════════════════════════════════════════════
-   🎞  TETRIS KEYFRAME ANIMATIONS
-════════════════════════════════════════════════════════ */
-
-/* Gentle float for hero pieces */
-@keyframes tfloat-a {
-
-    0%,
-    100% {
+@keyframes floatPlanet {
+    0%, 100% {
         transform: translateY(0px) rotate(0deg);
-        opacity: 0.13;
     }
-
-    30% {
-        transform: translateY(-16px) rotate(4deg);
-        opacity: 0.18;
-    }
-
-    60% {
-        transform: translateY(-8px) rotate(-3deg);
-        opacity: 0.15;
+    50% {
+        transform: translateY(-8px) rotate(1.5deg);
     }
 }
 
-@keyframes tfloat-b {
-
-    0%,
-    100% {
+@keyframes floatPlanetSlow {
+    0%, 100% {
         transform: translateY(0px) rotate(0deg);
-        opacity: 0.10;
     }
-
-    40% {
-        transform: translateY(-22px) rotate(-5deg);
-        opacity: 0.16;
-    }
-
-    70% {
-        transform: translateY(-10px) rotate(3deg);
-        opacity: 0.12;
-    }
-}
-
-@keyframes tfloat-c {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
-        opacity: 0.08;
-    }
-
     50% {
-        transform: translateY(-14px) rotate(6deg);
-        opacity: 0.13;
-    }
-}
-
-@keyframes tdrift {
-
-    0%,
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-        opacity: 0.09;
-    }
-
-    25% {
-        transform: translate(12px, -18px) rotate(90deg);
-        opacity: 0.14;
-    }
-
-    50% {
-        transform: translate(-8px, -30px) rotate(180deg);
-        opacity: 0.11;
-    }
-
-    75% {
-        transform: translate(10px, -16px) rotate(270deg);
-        opacity: 0.13;
-    }
-}
-
-@keyframes tcube-spin {
-    0% {
-        transform: rotate(0deg) scale(1);
-        opacity: 0.10;
-    }
-
-    50% {
-        transform: rotate(180deg) scale(1.06);
-        opacity: 0.16;
-    }
-
-    100% {
-        transform: rotate(360deg) scale(1);
-        opacity: 0.10;
+        transform: translateY(-12px) rotate(-1deg);
     }
 }
 
 .anim-float-a {
-    animation: tfloat-a var(--dur, 12s) ease-in-out var(--delay, 0s) infinite;
+    animation: floatPlanet 6s ease-in-out infinite;
 }
 
 .anim-float-b {
-    animation: tfloat-b var(--dur, 16s) ease-in-out var(--delay, 0s) infinite;
+    animation: floatPlanet 8s ease-in-out infinite;
 }
 
 .anim-float-c {
-    animation: tfloat-c var(--dur, 20s) ease-in-out var(--delay, 0s) infinite;
+    animation: floatPlanetSlow 7s ease-in-out infinite;
 }
 
-.anim-drift {
-    animation: tdrift var(--dur, 18s) ease-in-out var(--delay, 0s) infinite;
+.anim-float-slow {
+    animation: floatPlanetSlow 10s ease-in-out infinite;
 }
 
-.anim-cube {
-    animation: tcube-spin var(--dur, 22s) linear var(--delay, 0s) infinite;
+.anim-hero-float {
+    animation: floatPlanet 5s ease-in-out infinite;
 }
 
-/* ════════════════════════════════════════════════════════
-   ✨  REVEAL ON SCROLL  ·  Staggered entrance
-════════════════════════════════════════════════════════ */
+/* ─── Scroll-triggered Animations ─── */
+.reveal-on-scroll,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
 .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-    will-change: opacity, transform;
+    transform: translateY(32px);
 }
 
-.reveal-on-scroll.is-visible {
+.reveal-left {
+    transform: translateX(-40px);
+}
+
+.reveal-right {
+    transform: translateX(40px);
+}
+
+.reveal-scale {
+    transform: scale(0.95) translateY(20px);
+}
+
+.reveal-on-scroll.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.reveal-scale.is-visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) translateX(0) scale(1);
 }
 
-/* ════════════════════════════════════════════════════════
-   🌟  COMPONENT  UTILITY  CLASSES
-════════════════════════════════════════════════════════ */
-
-/* Netflix-style card scale */
-.netflix-card {
-    transition: transform 0.35s cubic-bezier(0.37, 0, 0.63, 1),
-        box-shadow 0.35s ease, border-color 0.35s ease;
-    position: relative;
-    z-index: 1;
-}
-
-.netflix-card:hover {
-    transform: scale(1.055) translateY(-5px);
-    z-index: 10;
-}
-
-/* Shimmer button sweep */
+/* ─── Shimmer effect for buttons ─── */
 .btn-shimmer {
     position: relative;
     overflow: hidden;
@@ -325,169 +151,101 @@ body::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.22) 50%, transparent 70%);
+    background: linear-gradient(105deg, transparent 30%, rgba(160, 240, 223, 0.25) 50%, transparent 70%);
     transform: translateX(-120%);
-    transition: transform 0.55s ease;
+    transition: transform 0.6s ease;
 }
 
 .btn-shimmer:hover::after {
     transform: translateX(120%);
 }
 
-/* Neon text shimmer */
+/* Modern Card with Blanco Crema background and Dark Blue text */
+.ecoinfinity-card {
+    background: #F9F9F6;
+    border: 1px solid #D8E2F0;
+    border-radius: 1.25rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35), 0 8px 10px -6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ecoinfinity-card:hover {
+    transform: translateY(-4px);
+    border-color: #70C3D4;
+    box-shadow: 0 0 20px rgba(160, 240, 223, 0.35), 0 0 35px rgba(112, 195, 212, 0.15);
+}
+
+/* Maintain support for legacy class name */
+.wroth-card {
+    background: #F9F9F6;
+    border: 1px solid #D8E2F0;
+    border-radius: 1.25rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.wroth-card:hover {
+    transform: translateY(-4px);
+    border-color: #70C3D4;
+    box-shadow: 0 0 15px rgba(160, 240, 223, 0.25);
+}
+
+/* Text highlight shimmer with brand colors adapted for dark background */
 .text-shimmer {
-    background: linear-gradient(90deg, #39ff14 0%, #22d3ee 40%, #39ff14 70%, #22d3ee 100%);
+    background: linear-gradient(90deg, #FFFFFF 0%, #A0F0DF 30%, #70C3D4 60%, #FFFFFF 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: textShimmer 4s linear infinite;
+    animation: textShimmer 6s linear infinite;
 }
 
 @keyframes textShimmer {
     0% {
         background-position: -200% center;
     }
-
     100% {
         background-position: 200% center;
     }
 }
 
-/* Nav link underline */
-.nav-link-hover {
-    position: relative;
+/* ─── Sleek Cosmic Scrollbar ─── */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
 
-.nav-link-hover::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0%;
-    height: 2px;
-    background: linear-gradient(90deg, #39ff14, #22d3ee);
-    border-radius: 999px;
-    transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+::-webkit-scrollbar-track {
+    background: #040915;
 }
 
-.nav-link-hover:hover::after {
-    width: 100%;
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #3474BE 0%, #70C3D4 100%);
+    border: 2.5px solid #040915;
+    border-radius: 9999px;
 }
 
-/* Neon card hover border */
-.neon-border-card {
-    border: 1px solid rgba(57, 255, 20, 0.08);
-    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+::-webkit-scrollbar-thumb:hover {
+    background: #A0F0DF;
+    box-shadow: 0 0 10px rgba(160, 240, 223, 0.6);
 }
 
-.neon-border-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 0 28px rgba(57, 255, 20, 0.09), inset 0 0 28px rgba(57, 255, 20, 0.02);
+/* ─── Hero entry animations ─── */
+.anim-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUpIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Logo glow */
-.logo-glow {
-    text-shadow: 0 0 18px rgba(57, 255, 20, 0.55);
-    transition: text-shadow 0.3s ease;
-}
-
-.logo-glow:hover {
-    text-shadow: 0 0 32px rgba(57, 255, 20, 1), 0 0 64px rgba(57, 255, 20, 0.4);
-}
-
-/* Scan-line sweep */
-@keyframes scanDown {
-    0% {
-        transform: translateY(-4px);
-        opacity: 0;
-    }
-
-    5% {
-        opacity: 1;
-    }
-
-    95% {
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateY(100vh);
-        opacity: 0;
-    }
-}
-
-.scan-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(57, 255, 20, 0.25), transparent);
-    animation: scanDown 5s linear infinite;
-    pointer-events: none;
-    z-index: 2;
-}
-
-/* Neon flicker */
-@keyframes neonFlicker {
-
-    0%,
-    89%,
-    100% {
-        opacity: 1;
-    }
-
-    90% {
-        opacity: 0.5;
-    }
-
-    92% {
-        opacity: 1;
-    }
-
-    94% {
-        opacity: 0.7;
-    }
-
-    96% {
-        opacity: 1;
-    }
-}
-
-.anim-neon-flicker {
-    animation: neonFlicker 5s ease-in-out infinite;
-}
-
-/* Float for hero image */
-@keyframes heroFloat {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-14px);
-    }
-}
-
-.anim-hero-float {
-    animation: heroFloat 5s ease-in-out infinite;
-}
-
-/* Fade-in-up (used on hero text) */
-@keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(28px);
-    }
-
-    100% {
+@keyframes fadeUpIn {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.anim-fade-up {
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
+/* Stagger delays for Hero column elements */
+.flex > .anim-fade-up:nth-child(1) { animation-delay: 100ms; }
+.flex > .anim-fade-up:nth-child(2) { animation-delay: 200ms; }
+.flex > .anim-fade-up:nth-child(3) { animation-delay: 300ms; }
+.flex > .anim-fade-up:nth-child(4) { animation-delay: 400ms; }

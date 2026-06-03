@@ -5,10 +5,13 @@ definePageMeta({
 </script>
 
 <template>
-  <LandingContainer>
+  <div>
     <LandingHero></LandingHero>
+    <LandingMissionVision></LandingMissionVision>
     <LandingFeatures></LandingFeatures>
+    <LandingProjects></LandingProjects>
+    <LandingClients></LandingClients>
     <LandingTeam></LandingTeam>
     <LandingCta></LandingCta>
-  </LandingContainer>
+  </div>
 </template>
