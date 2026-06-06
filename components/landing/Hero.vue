@@ -60,7 +60,7 @@
 
         <!-- Description -->
         <p class="hero-desc anim-fade-up text-lg lg:text-xl text-white/80 max-w-xl leading-relaxed">
-          Eco-Infinity es una startup líder que ofrece servicios y venta de tecnologías integrales. Unimos
+          Eco-Infinity es una startup  que ofrece servicios y venta de tecnologías integrales. Unimos
           <strong class="text-[#A0F0DF] font-bold">Innovación y Sustentabilidad</strong> para diseñar las soluciones del futuro.
         </p>
 

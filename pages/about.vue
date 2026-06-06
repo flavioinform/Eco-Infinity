@@ -111,10 +111,10 @@ const team = [
         </div>
         
         <h2 class="text-4xl lg:text-5xl font-serif text-white tracking-tight">
-          Las mentes detrás de Eco-Infinity
+          Equipo Eco-Infinity
         </h2>
         <p class="text-md mt-4 text-white/80 max-w-2xl mx-auto leading-relaxed">
-          Un equipo multidisciplinario con experiencia en Ingeniería Informática, Industrial y Eléctrica, impulsando la innovación tecnológica con un enfoque sustentable.
+          Un equipo multidisciplinario con experiencia sobre  Informática, Industrial y Eléctrica, impulsando la innovación tecnológica con un enfoque sustentable.
         </p>
       </div>
 
