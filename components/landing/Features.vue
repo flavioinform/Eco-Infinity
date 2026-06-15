@@ -110,7 +110,7 @@ const features = [
 
             <!-- Action Button Capsule -->
             <a href="/contact" class="flex items-center gap-1.5 px-4.5 py-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-white/40 text-white font-bold text-xs rounded-full uppercase tracking-wider transition-all duration-300">
-              <span>Ver más</span>
+              <span>Contacto</span>
               <Icon name="uil:arrow-right" class="w-4 h-4" />
             </a>
           </div>

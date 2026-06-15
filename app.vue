@@ -35,7 +35,7 @@ useHead({
 useSeoMeta({
   description: "Eco-Infinity es una startup en Chile que ofrece soluciones integrales de hardware IoT, redes de conectividad LoRa y plataformas de software a medida.",
   ogTitle: "Eco-Infinity - Innovación y Sustentabilidad Tecnológica",
-  ogDescription: "Eco-Infinity es una startup líder en Chile que ofrece soluciones integrales de hardware IoT, redes de conectividad LoRa y plataformas de software a medida.",
+  ogDescription: "Eco-Infinity es una startup  en Chile que ofrece soluciones integrales de hardware IoT, redes de conectividad LoRa y plataformas de software a medida.",
   ogType: "website",
   ogLocale: "es_CL",
   twitterCard: "summary_large_image",
